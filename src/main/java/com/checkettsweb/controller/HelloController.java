@@ -1,6 +1,7 @@
 package com.checkettsweb.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +19,7 @@ public class HelloController {
     private final Greeter greeter;
 
     @Autowired
-    public HelloController(Greeter greeter) {
+    public HelloController(@Qualifier("donnaGreeter") Greeter greeter) {
         formatter = DateTimeFormatter.ofPattern("h:mm:ss");
         this.greeter = greeter;
     }
