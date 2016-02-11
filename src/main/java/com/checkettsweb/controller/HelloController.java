@@ -14,14 +14,16 @@ import java.time.format.DateTimeFormatter;
 public class HelloController {
 
     private final DateTimeFormatter formatter;
+    private final Greeter greeter;
 
-    public HelloController() {
+    public HelloController(Greeter greeter) {
         formatter = DateTimeFormatter.ofPattern("h:mm:ss");
+        this.greeter = greeter;
     }
 
     @RequestMapping("/")
     public String hello(){
-        return "Hello World! "+ formatter.format(LocalDateTime.now());
+        return greeter.greet("World!")+ formatter.format(LocalDateTime.now());
     }
 
 }
