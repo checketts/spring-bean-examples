@@ -1,5 +1,6 @@
 package com.checkettsweb;
 
+import com.checkettsweb.controller.DonnaGreeter;
 import com.checkettsweb.controller.Greeter;
 import com.checkettsweb.controller.HelloController;
 import com.checkettsweb.controller.InformalGreeter;
@@ -10,9 +11,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 @Configuration
 @EnableAutoConfiguration
+@Import({OtherConfiguration.class})
 public class SpringBeanExamplesApplication {
 
 	public static void main(String[] args) {
